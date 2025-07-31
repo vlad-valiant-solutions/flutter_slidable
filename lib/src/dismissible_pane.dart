@@ -123,8 +123,8 @@ class _DismissiblePaneState extends State<DismissiblePane> {
     final endGesture = controller!.dismissGesture.value!.endGesture;
     final position = controller!.animation.value;
 
-    if (endGesture is OpeningGesture && position >= widget.dismissThreshold ||
-        endGesture is StillGesture && position >= widget.dismissThreshold) {
+    // If we're currently past the threshold, trigger the action regardless of gesture type
+    if (position >= widget.dismissThreshold) {
       bool canDismiss = true;
       if (widget.confirmDismiss != null) {
         canDismiss = await widget.confirmDismiss!();
