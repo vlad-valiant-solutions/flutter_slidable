@@ -1,3 +1,8 @@
+## 4.0.1
+
+### Fixed
+* Issue in auto_close_behavior where removeStatusListener was not called.
+
 ## 4.0.0
 
 ### Changed

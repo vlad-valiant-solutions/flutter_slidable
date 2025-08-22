@@ -537,7 +537,7 @@ class _SlidableNotificationSenderState
   }
 
   void removeListeners(_SlidableNotificationSender widget) {
-    widget.controller.animation.addStatusListener(handleStatusChanged);
+    widget.controller.animation.removeStatusListener(handleStatusChanged);
   }
 
   @override
