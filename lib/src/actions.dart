@@ -25,6 +25,7 @@ class CustomSlidableAction extends StatelessWidget {
     this.autoClose = _kAutoClose,
     this.borderRadius = BorderRadius.zero,
     this.padding,
+    this.alignment,
     required this.onPressed,
     required this.child,
   }) : assert(flex > 0);
@@ -79,6 +80,13 @@ class CustomSlidableAction extends StatelessWidget {
   /// {@endtemplate}
   final EdgeInsets? padding;
 
+  /// {@template slidable.actions.alignment}
+  /// The alignment of the child within the button.
+  ///
+  /// Defaults to [Alignment.center].
+  /// {@endtemplate}
+  final Alignment? alignment;
+
   /// Typically the action's icon or label.
   final Widget child;
 
@@ -96,7 +104,9 @@ class CustomSlidableAction extends StatelessWidget {
         child: OutlinedButton(
           onPressed: () => _handleTap(context),
           style: OutlinedButton.styleFrom(
-            padding: padding,
+            padding: padding ?? EdgeInsets.zero,
+            minimumSize: Size.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             backgroundColor: backgroundColor,
             disabledForegroundColor: effectiveForegroundColor.withValues(
               alpha: 0.38,
@@ -108,7 +118,10 @@ class CustomSlidableAction extends StatelessWidget {
             ),
             side: BorderSide.none,
           ),
-          child: child,
+          child: Align(
+            alignment: alignment ?? Alignment.center,
+            child: child,
+          ),
         ),
       ),
     );
@@ -144,6 +157,7 @@ class SlidableAction extends StatelessWidget {
     this.label,
     this.borderRadius = BorderRadius.zero,
     this.padding,
+    this.alignment,
   })  : assert(flex > 0),
         assert(icon != null || label != null);
 
@@ -178,6 +192,9 @@ class SlidableAction extends StatelessWidget {
 
   /// Padding of the OutlinedButton
   final EdgeInsets? padding;
+
+  /// {@macro slidable.actions.alignment}
+  final Alignment? alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -220,6 +237,7 @@ class SlidableAction extends StatelessWidget {
     return CustomSlidableAction(
       borderRadius: borderRadius,
       padding: padding,
+      alignment: alignment,
       onPressed: onPressed,
       autoClose: autoClose,
       backgroundColor: backgroundColor,
