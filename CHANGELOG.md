@@ -1,3 +1,8 @@
+## 4.0.3
+
+### Fixed
+* Fixes issue with dismissal [#537](https://github.com/letsar/flutter_slidable/issues/537)
+
 ## 4.0.2
 
 ### Fixed

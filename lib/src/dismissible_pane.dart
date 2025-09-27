@@ -120,7 +120,6 @@ class _DismissiblePaneState extends State<DismissiblePane> {
   }
 
   Future<void> handleDismissGestureChanged() async {
-    final endGesture = controller!.dismissGesture.value!.endGesture;
     final position = controller!.animation.value;
 
     // If we're currently past the threshold, trigger the action regardless of gesture type
