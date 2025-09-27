@@ -1,3 +1,8 @@
+## 4.0.2
+
+### Fixed
+* Issue when actionPaneConfigurator is null when calling openCurrentActionPane. Thanks to @EM-Sabeel.
+
 ## 4.0.1
 
 ### Fixed

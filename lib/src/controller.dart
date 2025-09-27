@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 
 const _defaultMovementDuration = Duration(milliseconds: 200);
 const _defaultCurve = Curves.ease;
+const kDefaultExtentRatio = 0.5;
 
 /// The different kinds of action panes.
 enum ActionPaneType {
@@ -275,8 +276,16 @@ class SlidableController {
     Duration duration = _defaultMovementDuration,
     Curve curve = _defaultCurve,
   }) async {
+    final defaultExtentRatio = switch (actionPaneType.value) {
+      ActionPaneType.start => _startActionPaneExtentRatio,
+      ActionPaneType.end => _endActionPaneExtentRatio,
+      ActionPaneType.none => kDefaultExtentRatio,
+    };
+    final extentRatio =
+        actionPaneConfigurator?.extentRatio ?? defaultExtentRatio;
+
     return openTo(
-      actionPaneConfigurator!.extentRatio,
+      extentRatio,
       duration: duration,
       curve: curve,
     );
@@ -321,7 +330,7 @@ class SlidableController {
   /// The [ratio] sign will determine which direction the slidable should open.
   /// ```dart
   ///   controller.openTo(-1); //opens slidable all the way to the left side
-  /// ```  
+  /// ```
   Future<void> openTo(
     double ratio, {
     Duration duration = _defaultMovementDuration,

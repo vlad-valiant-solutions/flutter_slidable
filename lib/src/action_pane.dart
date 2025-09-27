@@ -1,7 +1,5 @@
 part of 'slidable.dart';
 
-const _defaultExtentRatio = 0.5;
-
 /// Data of the ambient [ActionPane] accessible from its children.
 @immutable
 class ActionPaneData {
@@ -46,7 +44,7 @@ class ActionPane extends StatefulWidget {
   /// The [children] argument must not be null.
   const ActionPane({
     super.key,
-    this.extentRatio = _defaultExtentRatio,
+    this.extentRatio = kDefaultExtentRatio,
     required this.motion,
     this.dismissible,
     this.dragDismissible = true,

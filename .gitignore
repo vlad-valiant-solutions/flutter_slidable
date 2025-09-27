@@ -75,3 +75,5 @@ coverage/
 !**/ios/**/default.perspectivev3
 
 pubspec.lock
+
+example/ios/Flutter/ephemeral/
