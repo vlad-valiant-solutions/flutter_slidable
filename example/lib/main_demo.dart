@@ -269,7 +269,7 @@ class SlideAction extends StatelessWidget {
       onPressed: (_) {
         print(icon);
       },
-      icon: icon,
+      icon: Icon(icon),
       label: 'hello',
     );
   }

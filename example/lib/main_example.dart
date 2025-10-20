@@ -10,12 +10,12 @@ void main() {
 const actions = [
   SlideAction(
     color: Color(0xFFFE4A49),
-    icon: Icons.delete,
+    icon: Icon(Icons.delete),
     label: 'Delete',
   ),
   SlideAction(
     color: Color(0xFF21B7CA),
-    icon: Icons.share,
+    icon: Icon(Icons.share),
     label: 'Share',
   ),
 ];
@@ -43,8 +43,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
   AnimationController? controller;
 
   @override
@@ -144,8 +143,7 @@ class SlidableControllerSender extends StatefulWidget {
   final Widget? child;
 
   @override
-  _SlidableControllerSenderState createState() =>
-      _SlidableControllerSenderState();
+  _SlidableControllerSenderState createState() => _SlidableControllerSenderState();
 }
 
 class _SlidableControllerSenderState extends State<SlidableControllerSender> {
@@ -207,7 +205,7 @@ class SlideAction extends StatelessWidget {
   }) : super(key: key);
 
   final Color color;
-  final IconData icon;
+  final Widget icon;
   final int flex;
   final String label;
 
